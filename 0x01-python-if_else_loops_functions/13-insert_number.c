@@ -34,7 +34,7 @@ listint_t *insert_node(listint_t **head, int number)
 	}
 	while (max)
 	{
-		if (min->n < number && number < max->n)
+		if (min->n <= number && number <= max->n)
 		{
 
 			min->next = new;
