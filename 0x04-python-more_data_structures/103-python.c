@@ -7,19 +7,21 @@
  */
 void print_python_list(PyObject *p)
 {
-	Py_ssize_t allocated, size, i;
-	PyObject *item;
-	char *type;
+	int allocated, size, i;
+	const char *type;
 
-	if (!PyList_Check(p))
+	if (strcmp(type, "bytes") == 0)
 	{
 		printf("[*] Python list info\n");
 		printf("[ERROR] Invalid List Object\n");
 		return;
 	}
-	
+
+	PyVarObject *var = (PyVarObject *)p
+
+	size = var->ob_size;
 	allocated = (PyListObject *)p->allocated
-	size = PyList_Size(p);
+
 	printf("*] Python list info\n");
 	printf("[*] Size of the Python List = %ld", size);
 	printf("[*] Allocated = %ld", allocated);
