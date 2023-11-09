@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def weight_average(my_list=[]):
-    
+
     w_values = list(map(lambda x: x[0] * x[1], my_list))
     total_weight = sum(map(lambda x: x[1], my_list))
 
