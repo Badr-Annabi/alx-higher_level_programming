@@ -1,5 +1,7 @@
 #include <Python.h>
 #include <stdio.h>
+#include <listobject.h>
+#include <bytesobkect.h>
 
 /**
  * print_python_list - printing list
