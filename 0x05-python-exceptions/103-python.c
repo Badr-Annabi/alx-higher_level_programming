@@ -1,8 +1,28 @@
-#include <stdio.h>
 #include <Python.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <floatobject.h>
 
+
+/**
+ * print_python_float - prints info about Python Float.
+ * @p: Pointer to PyObject struct
+ */
+void print_python_float(PyObject *p)
+{
+        double ft;
+
+        setbuf(stdout, NULL);
+        printf("[.] float object info\n");
+        if (strcmp(p->ob_type->tp_name, "float"))
+        {
+                printf("  [ERROR] Invalid Float Object");
+                return;
+        }
+        ft = ((PyFloatObject *)p)->ob_fval;
+        printf("  value: %s\n",
+                        PyOS_double_to_string(ft, 'r', 0, Py_DTSF_ADD_DOT_0, NULL));
+}
 
 /**
  * print_python_bytes - prints info about Python Bytes.
@@ -13,7 +33,7 @@ void print_python_bytes(PyObject *p)
 	size_t i, len, size;
 	char *str;
 
-	setbuff(stdout, NULL);
+	setbuf(stdout, NULL);
 	printf("[.] bytes object info\n");
 	if (strcmp(p->ob_type->tp_name, "bytes"))
 	{
@@ -36,7 +56,7 @@ void print_python_bytes(PyObject *p)
  */
 void print_python_list(PyObject *p)
 {
-	int i
+	int i;
 
 	setbuf(stdout, NULL);
 	printf("[*] Python list info\n");
@@ -53,29 +73,8 @@ void print_python_list(PyObject *p)
 				((PyListObject *)p)->ob_item[i]->ob_type->tp_name);
 		if (!strcmp(((PyListObject *)p)->ob_item[i]->ob_type->tp_name, "bytes"))
 			print_python_bytes(((PyListObject *)p)->ob_item[i]);
-		else if (!strcmp(((PyListObject *)p)ob_item[i]->ob_type->type_name, "float"))
+		else if (!strcmp(((PyListObject *)p)->ob_item[i]->ob_type->tp_name, "float"))
 			print_python_float(((PyListObject *)p)->ob_item[i]);
 	}
 
 }
-
-/**
- * print_python_float - prints info about Python Float.
- * @p: Pointer to PyObject struct
- */
-void print_python_float(PyObject *p)
-{
-	double ft;
-
-	setbuf(stdout, NULL);
-	printf("[.] float object info\n");
-	if (strcmp(p->ob_type->tp_name, "float"))
-	{
-		printf("  [ERROR] Invalid Float Object");
-		return;
-	}
-	ft = ((PyFloatObject *)p)->ob_fval;
-	printf("  value: %s\n",
-			PyOS_double_to_string(ft, 'r', 0, Py_DTSF_ADD_DOT_0, NULL));
-}
-
