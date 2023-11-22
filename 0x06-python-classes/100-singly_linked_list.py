@@ -134,5 +134,4 @@ class SinglyLinkedList:
             tmp = tmp.next_node
         if tmp.next_node is None:
             printed += str(tmp.data)
-            tmp = tmp.next_node
         return printed
