@@ -127,8 +127,8 @@ class Square:
         if size != 0:
             [print("") for i in range(position[1])]
         for i in range(size):
-            [print(" ", end="") for j in range(0, position[0])]
-            [print("#", end="") for k in range(0, size)]
+            [print(" ", end="") for n in range(0, position[0])]
+            [print("#", end="") for m in range(0, size)]
             if i != size - 1:
                 print("")
         return ""
