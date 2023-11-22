@@ -129,9 +129,10 @@ class SinglyLinkedList:
 
         Return: All the nodes.
         """
-        values = []
         tmp = self.__head
+        printed = ""
         while tmp is not None:
-            values.append(str(tmp.data))
+            printed += str(tmp.data) + "\n"
             tmp = tmp.next_node
-        return ('\n'.join(values))
+        printed = printed.rstrip('\n')
+        return printed
