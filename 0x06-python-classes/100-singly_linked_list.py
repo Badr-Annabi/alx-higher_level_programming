@@ -17,7 +17,7 @@ Usage:
 
 
 class Node:
-
+    """Represent a single Node for a SLL."""
     def __init__(self, data, next_node=None):
 
         """
@@ -89,25 +89,8 @@ class Node:
         self.__next_node = value
 
 
-"""
-Module Name: Singly linked list module
-
-This module defines a node of a singly
-linked list class.
-
-Classes:
-    Node: Defines a node of a singly linked list.
-    SinglyLinkedList: Defines a SLL
-
-Atrribute:
-    None
-Usage:
-    Creating Nodes.
-"""
-
-
 class SinglyLinkedList:
-
+    """Represent a SLL (Singly Linked List)"""
     def __init__(self):
         """
         Initializes a new instance of singly linked list class.
