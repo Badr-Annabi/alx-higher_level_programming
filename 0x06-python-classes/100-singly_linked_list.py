@@ -111,7 +111,7 @@ class SinglyLinkedList:
         new_node = Node(value)
         if self.__head is None:
             new_node.next_node = None
-        if self.__head is None or self.__head.data >= value:
+        elif self.__head.data > value:
             new_node.next_node = self.__head
             self.__head = new_node
         else:
