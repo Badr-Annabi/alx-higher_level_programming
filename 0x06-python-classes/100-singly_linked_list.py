@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """
 Module Name: Singly linked list module
 
