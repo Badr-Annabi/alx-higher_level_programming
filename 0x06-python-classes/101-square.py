@@ -1,17 +1,16 @@
 #!/usr/bin/python3
-
 """
-    Module Name: square_module
+Module Name: square_module
 
-    This module defines a simple Square class.
+This module defines a simple Square class.
 
-    Class:
+Class:
     Square: Defines a square.
 
-    Atrribute:
-        None
-    Usage:
-        new_square = Square(n)
+Atrribute:
+    None
+Usage:
+    new_square = Square(n)
 
 """
 
@@ -40,7 +39,7 @@ class Square:
         """
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
-        elif size < 0:
+        if size < 0:
             raise ValueError("size must be >= 0")
         if type(position) is not tuple or len(position) != 2\
            or type(position[0]) is not int or type(position[1])\
@@ -56,7 +55,7 @@ class Square:
 
     @size.setter
     def size(self, value):
-        if type(value) is not int:
+        if not isinstance(value, int):
             raise TypeError("size must be an integer")
         elif value < 0:
             raise ValueError("size must be >= 0")
@@ -117,14 +116,19 @@ class Square:
             for i in range(position[1]):
                 print()
             for i in range(size):
-                print(" " * position[0] + "#" * size, end="")
+                print(" " * position[0] + "#" * size)
 
     def __str__(self):
+        """
+        Special method for Class Object strings
+        """
         size = self.__size
         position = self.__position
-        res = ""
         if size != 0:
-            return "\n".join([" " * position[
-                0] + "#" * size for _ in range(size)])
-        else:
+            [print("") for i in range(position[1])]
+            for i in range(size):
+                [print(" ", end="") for j in range(0, position[0])]
+                [print("#", end="") for k in range(0, size)]
+                if i != size - 1:
+                    print("")
             return ""
