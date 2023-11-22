@@ -29,7 +29,7 @@ class MagicClass:
         """
         All calculations for the area of the MagicClass
         """
-        return self.__radius ** 2 * 2
+        return self.__radius ** 2 * math.pi
 
     def circumference(self):
         """
