@@ -131,9 +131,9 @@ class SinglyLinkedList:
         """
         tmp = self.__head
         printed = ""
-        while tmp is not None:
+        while tmp.next_node is not None:
             printed += str(tmp.data) + "\n"
             tmp = tmp.next_node
-        # if tmp.next_node is None:
-        #     printed += str(tmp.data)
+        if tmp.next_node is None:
+            printed += str(tmp.data)
         return printed
