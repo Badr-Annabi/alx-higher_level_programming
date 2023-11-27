@@ -79,4 +79,6 @@ class Rectangle:
         """
         This method returns a rectangle perimeter.
         """
+        if (self.__width and self.__height) == 0:
+            return 0
         return 2 * (self.__height + self.__width)
