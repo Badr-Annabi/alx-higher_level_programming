@@ -20,6 +20,7 @@ Usage:
 
 
 class LockedClass:
+
     """
     A class that defines a rectangle
 
@@ -30,4 +31,5 @@ class LockedClass:
     Methods:
     None
     """
+
     __slots__ = ['first_name']
