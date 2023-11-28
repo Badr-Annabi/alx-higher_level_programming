@@ -16,6 +16,8 @@ Atrribute:
 Usage:
     LockedClass()
 """
+
+
 class LockedClass:
     """
     A class that defines a rectangle
