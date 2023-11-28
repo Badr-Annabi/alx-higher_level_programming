@@ -13,7 +13,7 @@ Class:
     LockedClass.
 
 Atrribute:
-    slots
+    __slots__
 Usage:
     LockedClass()
 """
@@ -25,7 +25,7 @@ class LockedClass:
     A class that defines a rectangle
 
     Attribute:
-    slots: defines a tuple of
+    __slots__: defines a tuple of
     allowed attribute names
 
     Methods:
