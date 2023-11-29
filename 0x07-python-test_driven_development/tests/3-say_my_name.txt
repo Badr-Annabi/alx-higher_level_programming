@@ -1,0 +1,27 @@
+The ``3-say_my_name`` module
+===========================
+
+Using ``say_my_name``
+---------------------
+This a test file for the matrix_divider function:
+  >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+  ===============================================
+  >>> say_my_name("John", "Smith")
+  My name is John Smith
+
+  ===============================================
+  >>> say_my_name("Bob")
+  My name is Bob
+
+  ===============================================
+  >>> say_my_name(12, "White")
+  Traceback (most recent call last):
+  ...
+  TypeError: first_name must be a string
+
+  ===============================================
+  >>> say_my_name("Bob", 12)
+  Traceback (most recent call last):
+  ...
+  TypeError: last_name must be a string
