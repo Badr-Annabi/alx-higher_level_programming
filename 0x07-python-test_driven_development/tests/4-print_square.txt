@@ -36,6 +36,10 @@ This a test file for the matrix_divider function:
   >>> print_square(0)
 
   ==============================================
+  >>> print_square(1)
+  #
+
+  =============================================
   >>> print_square(5.5)
   Traceback (most recent call last):
   ...
@@ -47,4 +51,12 @@ This a test file for the matrix_divider function:
   ...
   TypeError: size must be an integer
 
-
+  ==============================================
+  >>> print_square(None)
+  Traceback (most recent call last):
+  TypeError: size must be an integer
+  
+  =============================================
+  >>> print_square()
+  Traceback (most recent call last):
+  TypeError: print_square() missing 1 required positional argument: 'size'

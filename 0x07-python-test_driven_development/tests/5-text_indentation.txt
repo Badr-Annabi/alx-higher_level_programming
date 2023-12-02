@@ -43,3 +43,64 @@ This a test file for the matrix_divider function:
   Quae animi affectio suum cuique tribuens atque hanc, quam dico.
   <BLANKLINE>
   Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres
+
+  ==========================================================
+  >>> text_indentation("     Hello world!")
+  Hello world!
+
+  ===============================================
+  >>> text_indentation("          ")
+
+  =================================================
+  >>> text_indentation("Hello.   ")
+  Hello.
+  <BLANKLINE>
+  
+  ========================================================
+  >>> text_indentation("    Trust me.    Said the spider to the fly.   ")
+  Trust me.
+  <BLANKLINE>
+  Said the spider to the fly.
+  <BLANKLINE>
+
+  =================================================
+  >>> text_indentation("Hope, is an undiscovered disappointment!!!")
+  Hope, is an undiscovered disappointment!!!
+
+  =====================================================
+  >>> text_indentation("Let's print a new-line! Here goes:\nPrinted.")
+  Let's print a new-line! Here goes:
+  <BLANKLINE>
+  <BLANKLINE>
+  Printed.
+  <BLANKLINE>
+
+  =======================================================
+  >>> text_indentation("\n\n\n We just printed three new lines.")
+  <BLANKLINE>
+  <BLANKLINE>
+  <BLANKLINE>
+  We just printed three new lines.
+  <BLANKLINE>
+
+  ========================================================  
+  >>> text_indentation("A sneaky \n new line.")
+  A sneaky 
+  new line.
+  <BLANKLINE>
+
+  ===============================================================================================
+  >>> text_indentation(15)
+  Traceback (most recent call last):
+  ...
+  TypeError: text must be a string
+
+  =====================================
+  >>> text_indentation("Hello. Is there any one here? \
+  ... This is a test file for text_indentation function.")
+  Hello.
+  <BLANKLINE>
+  Is there any one here?
+  <BLANKLINE>
+  This is a test file for text_indentation function.
+  <BLANKLINE>
