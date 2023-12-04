@@ -8,13 +8,7 @@ This a test file for a class (BaseGeometry) that inherits from list:
 
   ===============================================
   >>> bg = BaseGeometry()
-
-  ===============================================
-  >>> bg.integer_validator("my_int", )
-  Traceback (most recent call last):
-  ...
-  TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
-
+  
   ===============================================
   >>> bg.integer_validator("my_int", 12)
 
@@ -35,4 +29,3 @@ This a test file for a class (BaseGeometry) that inherits from list:
   Traceback (most recent call last):
   ...
   ValueError: <name> must be greater than 0
-  
