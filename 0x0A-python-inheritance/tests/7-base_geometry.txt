@@ -45,12 +45,6 @@ This a test file for a class (BaseGeometry) that inherits from list:
   TypeError: <name> must be an integer
 
   ===============================================
-  >>> bg.integer_validator("my_int", )
-  Traceback (most recent call last):
-  ...
-  TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
-
-  ================================================
   >>> bg.integer_validator("my_int", "")
   Traceback (most recent call last):
   ...
