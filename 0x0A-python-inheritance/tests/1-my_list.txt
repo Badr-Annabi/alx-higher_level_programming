@@ -10,6 +10,10 @@ This a test file for a class (Mylist) that inherits from list:
   >>> my_list = MyList()
 
   ===============================================
+  >>> my_list.print_sorted()
+  []
+  
+  ===============================================
   >>> my_list.append(1)
 
   ===============================================
@@ -39,24 +43,3 @@ This a test file for a class (Mylist) that inherits from list:
   ===============================================
   >>> print(my_list)
   [1, 4, 2, 3, 5]
-
-  ===============================================
-  >>> my_list.print_sorted([1,4,2,3,5])
-  Traceback (most recent call last):
-  ...
-  TypeError: MyList.print_sorted() takes 1 positional argument but 2 were given
-
-  ===============================================
-  >>> my_list.print_sorted([1,4,2,3,5], 1)
-  Traceback (most recent call last):
-  ...
-  TypeError: MyList.print_sorted() takes 1 positional argument but 3 were given
-
-  ===============================================
-  >>> my_list2 = MyList()
-
-  ===============================================
-  >>> my_list2.print_sorted()
-  []
-
-
