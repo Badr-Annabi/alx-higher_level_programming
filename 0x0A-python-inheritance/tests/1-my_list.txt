@@ -75,5 +75,6 @@ This a test file for a class (Mylist) that inherits from list:
   [-4, -1, 0, 3, 4]
 
   =============================================
-  >>>print(neg_list)
+  >>> print(neg_list)
   [-1, 0, -4, 4, 3]
+
