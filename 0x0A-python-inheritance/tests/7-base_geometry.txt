@@ -15,6 +15,24 @@ This a test file for a class (BaseGeometry) that inherits from list:
   ...
   TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
+  ==============================================
+  >>> bg.__class__.area()
+  Traceback (most recent call last):
+  ...
+  TypeError: BaseGeometry.area() missing 1 required positional argument: 'self'
+
+  ==============================================
+  >>> bg = BaseGeometry(None)
+  Traceback (most recent call last):
+  ...
+  TypeError: BaseGeometry() takes no arguments
+
+  ==============================================
+  >>> bg.integer_validator(None)
+  Traceback (most recent call last):
+  ...
+  TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+
   ===============================================
   >>> isinstance(bg, BaseGeometry)
   True
@@ -22,9 +40,18 @@ This a test file for a class (BaseGeometry) that inherits from list:
   ===============================================
   >>> issubclass(type(bg), BaseGeometry)
   True
+  
+  ===============================================
+  >>> type(BaseGeometry.__dict__['integer_validator'])
+  <class 'function'>
 
   ===============================================
   >>> bg.integer_validator("my_int", 12)
+
+  ==============================================
+  >>> bg.integer_validator("name", None)
+  Traceback (most recent call last):
+  TypeError: name must be an integer
 
   ===============================================
   >>> bg.integer_validator("my_neg", -12)
@@ -61,3 +88,18 @@ This a test file for a class (BaseGeometry) that inherits from list:
   Traceback (most recent call last):
   ...
   TypeError: my_zero must be an integer
+
+  ==============================================
+  >>> bg.integer_validator("name", [4, 4])
+  Traceback (most recent call last):
+  TypeError: name must be an integer
+
+  ==============================================
+  >>> bg.integer_validator([0, 0], [0, 0])
+  Traceback (most recent call last):
+  TypeError: [0, 0] must be an integer
+
+  ==============================================
+  >>> bg.area()
+  Traceback (most recent call last):
+  Exception: area() is not implemented
