@@ -49,3 +49,9 @@ This a test file for a class (BaseGeometry) that inherits from list:
   Traceback (most recent call last):
   ...
   TypeError: <name> must be an integer
+
+  ===============================================
+  >>> bg.integer_validator("my_zero", -1.2)
+  Traceback (most recent call last):
+  ...
+  TypeError: <name> must be an integer
