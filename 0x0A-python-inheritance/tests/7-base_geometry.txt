@@ -8,7 +8,15 @@ This a test file for a class (BaseGeometry) that inherits from list:
 
   ===============================================
   >>> bg = BaseGeometry()
-  
+
+  ===============================================
+  >>> isinstance(bg, BaseGeometry)
+  True
+
+  ===============================================
+  >>> issubclass(type(bg), BaseGeometry)
+  True
+
   ===============================================
   >>> bg.integer_validator("my_int", 12)
 
