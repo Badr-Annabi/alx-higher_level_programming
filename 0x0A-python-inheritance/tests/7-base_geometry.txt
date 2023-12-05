@@ -10,6 +10,10 @@ This a test file for a class (BaseGeometry) that inherits from list:
   >>> bg = BaseGeometry()
 
   ===============================================
+  >>> type(bg) == BaseGeometry
+  True
+
+  ===============================================
   >>> bg.integer_validator()
   Traceback (most recent call last):
   ...
@@ -21,6 +25,12 @@ This a test file for a class (BaseGeometry) that inherits from list:
   ...
   TypeError: BaseGeometry.area() missing 1 required positional argument: 'self'
 
+  ==============================================
+  >>> bg.area(10)
+  Traceback (most recent call last):
+  ...
+  TypeError: BaseGeometry.area() takes 1 positional argument but 2 were given
+  
   ==============================================
   >>> bg = BaseGeometry(None)
   Traceback (most recent call last):
@@ -42,15 +52,44 @@ This a test file for a class (BaseGeometry) that inherits from list:
   True
   
   ===============================================
+  >>> type(BaseGeometry.__dict__['area'])
+  <class 'function'>
+
+  ===============================================
   >>> type(BaseGeometry.__dict__['integer_validator'])
   <class 'function'>
 
   ===============================================
+  >>> bg.__class__.integer_validator()
+  Traceback (most recent call last):
+  ...
+  TypeError: BaseGeometry.integer_validator() missing 3 required positional arguments: 'self', 'name', and 'value'
+  
+  ===============================================
+  >>> bg.integer_validator()
+  Traceback (most recent call last):
+  ...
+  TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+  
+  ===============================================
+  >>> bg.integer_validator(1, 1, 1)
+  Traceback (most recent call last):
+  ...
+  TypeError: BaseGeometry.integer_validator() takes 3 positional arguments but 4 were given
+  
+  ==============================================
   >>> bg.integer_validator("my_int", 12)
+
+  ==============================================
+  >>> bg.integer_validator("", 12)
+
+  ==============================================
+  >>> bg.integer_validator(None, 1)
 
   ==============================================
   >>> bg.integer_validator("name", None)
   Traceback (most recent call last):
+  ...
   TypeError: name must be an integer
 
   ===============================================
@@ -61,6 +100,12 @@ This a test file for a class (BaseGeometry) that inherits from list:
 
   ===============================================
   >>> bg.integer_validator("name", "Bob")
+  Traceback (most recent call last):
+  ...
+  TypeError: name must be an integer
+
+  ===============================================
+  >>> bg.integer_validator("name", True)
   Traceback (most recent call last):
   ...
   TypeError: name must be an integer
@@ -78,6 +123,12 @@ This a test file for a class (BaseGeometry) that inherits from list:
   TypeError: my_zero must be an integer
 
   ===============================================
+  >>> bg.integer_validator("my_zero", 1.0)
+  Traceback (most recent call last):
+  ...
+  TypeError: my_zero must be an integer
+
+  ================================================
   >>> bg.integer_validator("my_int", "")
   Traceback (most recent call last):
   ...
@@ -92,14 +143,35 @@ This a test file for a class (BaseGeometry) that inherits from list:
   ==============================================
   >>> bg.integer_validator("name", [4, 4])
   Traceback (most recent call last):
+  ...
   TypeError: name must be an integer
 
   ==============================================
-  >>> bg.integer_validator([0, 0], [0, 0])
+  >>> bg.integer_validator("name", [4])
   Traceback (most recent call last):
+  ...
+  TypeError: name must be an integer
+
+  ==============================================
+  >>> bg.integer_validator([0, 0], [7, 5])
+  Traceback (most recent call last):
+  ...
   TypeError: [0, 0] must be an integer
+
+  ==============================================
+  >>> bg.integer_validator("John", {7, 5})
+  Traceback (most recent call last):
+  ...
+  TypeError: John must be an integer
+
+  ==============================================
+  >>> bg.integer_validator("Bob", (7, 5))
+  Traceback (most recent call last):
+  ...
+  TypeError: Bob must be an integer
 
   ==============================================
   >>> bg.area()
   Traceback (most recent call last):
+  ...
   Exception: area() is not implemented
