@@ -19,17 +19,17 @@ area method is an instance method:
     >>> type(BaseGeometry.__dict__['area'])
     <class 'function'>
 
-area method called via class with no args:
+area with no args:
     >>> bg.__class__.area()
     Traceback (most recent call last):
     TypeError: area() missing 1 required positional argument: 'self'
 
-area method args test (1 arg):
+area method with 1 arg:
     >>> bg.area(10)
     Traceback (most recent call last):
     TypeError: area() takes 1 positional argument but 2 were given
 
-area method normal test:
+area method:
     >>> bg.area()
     Traceback (most recent call last):
     Exception: area() is not implemented
@@ -37,83 +37,83 @@ area method normal test:
 
 integer_validator() instance method
 -----------------------------------
-integer_validator is an instance method:
+integer_validator (type_test):
     >>> type(BaseGeometry.__dict__['integer_validator'])
     <class 'function'>
 
-integer_validator method called via class with no args:
+integer_validator methode with no args:
     >>> bg.__class__.integer_validator()
     Traceback (most recent call last):
     TypeError: integer_validator() missing 3 required positional arguments: 'self', 'name', and 'value'
 
-integer_validator method arg test (0 args):
+integer_validator methode with no args:
     >>> bg.integer_validator()
     Traceback (most recent call last):
     TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
     
-integer_validator method arg test (3 args):
+integer_validator methode (test with 3 args):
     >>> bg.integer_validator(1, 1, 1)
     Traceback (most recent call last):
     TypeError: integer_validator() takes 3 positional arguments but 4 were given
 
-integer_validator method float.0 value:
+integer_validator methode with a string and a float:
     >>> bg.integer_validator("foo", 3.0)
     Traceback (most recent call last):
     TypeError: foo must be an integer
 
-integer_validator method float.x value:
+integer_validator methode with a string:
     >>> bg.integer_validator("arg", 3.14)
     Traceback (most recent call last):
     TypeError: arg must be an integer
 
-integer_validator method string value:
+integer_validator methode using string:
     >>> bg.integer_validator("Bar", "bar")
     Traceback (most recent call last):
     TypeError: Bar must be an integer
 
-integer_validator method bool value:
+integer_validator methode using boolean:
     >>> bg.integer_validator("zar", True)
     Traceback (most recent call last):
     TypeError: zar must be an integer
 
-integer_validator method list value:
+integer_validator methode using list:
     >>> bg.integer_validator("a", [1])
     Traceback (most recent call last):
     TypeError: a must be an integer
 
-integer_validator method None value:
-    >>> bg.integer_validator("foo", None)
+integer_validator method using a string and None:
+    >>> bg.integer_validator("Bob", None)
     Traceback (most recent call last):
-    TypeError: foo must be an integer
+    TypeError: Bob must be an integer
 
-integer_validator method 0 value:
+integer_validator method:
     >>> bg.integer_validator("key", 0)
     Traceback (most recent call last):
     ValueError: key must be greater than 0
 
 integer_validator method negative value:
-    >>> bg.integer_validator("key", -1000)
+    >>> bg.integer_validator("key", -900)
     Traceback (most recent call last):
     ValueError: key must be greater than 0
 
-integer_validator method ok value:
-    >>> bg.integer_validator("key", 98)
+integer_validator method using acceptable value:
+    >>> bg.integer_validator("key", 100)
     
-integer_validator method ok value 2:
-    >>> bg.integer_validator("key", 1)
+integer_validator method using acceptable value:
+    >>> bg.integer_validator("key", 50)
 
-integer_validator method empty string:
-    >>> bg.integer_validator("", 1)
+integer_validator method usin empty string:
+    >>> bg.integer_validator("", 100)
 
-integer_validator method empty string:
-    >>> bg.integer_validator(None, 1)
+integer_validator method using empty string:
+    >>> bg.integer_validator(None, 6)
 
-integer_validator method tuple:
-    >>> bg.integer_validator("Foo", (1, 2))
+integer_validator method using tuple:
+    >>> bg.integer_validator("Bob", (5, 9))
     Traceback (most recent call last):
-    TypeError: Foo must be an integer
+    TypeError: Bob must be an integer
 
-integer_validator method dic:
-    >>> bg.integer_validator("Foo", {1, 2})
+integer_validator method using dic:
+    >>> bg.integer_validator("Bob", {3, 7})
     Traceback (most recent call last):
-    TypeError: Foo must be an integer
+    TypeError: Bob must be an integer
