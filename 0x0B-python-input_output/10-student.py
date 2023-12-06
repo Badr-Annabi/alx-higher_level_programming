@@ -19,10 +19,11 @@ class Student:
 
     def to_json(self, attrs=None):
 
-        if attrs:
+        if attrs is None:
+            return self.__dict__
+        else:
             fill_dict = {}
             for attr in attrs:
                 if hasattr(self, attr):
                     fill_dict[attr] = getattr(self, attr)
             return fill_dict
-        return self.__dict__
