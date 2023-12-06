@@ -10,14 +10,14 @@ status_codes = {"200": 0, "301": 0, "400": 0, "401": 0,
 i = 0
 try:
     for line in sys.stdin:
-        line = line.split()
-        if len(line) >= 2:
+        slice = line.split()
+        if len(slice) >= 2:
             j = i
-            if line[-2] in status_codes:
-                status_codes[line[-2]] += 1
+            if slice[-2] in status_codes:
+                status_codes[slice[-2]] += 1
                 i += 1
             try:
-                total_size += int(line[-1])
+                total_size += int(slice[-1])
                 if j == i:
                     i += 1
             except FileNotFoundError:
