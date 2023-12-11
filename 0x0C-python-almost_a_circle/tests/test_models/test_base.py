@@ -159,6 +159,11 @@ were given"
         Square.save_to_file(None)
         with open("Square.json", "r") as file:
             self.assertEqual(file.read(), "[]")
+        
+        rec1 = Rectangle(6, 8)
+        Rectangle.save_to_file([rec1])
+        with open("Rectangle.json", "r") as file:
+            self.assertEqual(len(file.read()), 52)
 
 
 if __name__ == "__main__":
