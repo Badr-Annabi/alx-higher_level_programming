@@ -60,13 +60,13 @@ class TestBase(unittest.TestCase):
         msg = "__init__() missing 1 required positional argument: 'self'"
         self.assertEqual(str(e.exception), msg)
 
-#     def test_D_constructor_args_2(self):
-#         '''Tests constructor signature with 2 notself args.'''
-#         with self.assertRaises(TypeError) as e:
-#             Base.__init__(self, 1, 2)
-#         msg = "Base.__init__() takes from 1 to 2 positional arguments but 3 \
-# were given"
-#         self.assertEqual(str(e.exception), msg)
+    def test_D_constructor_args_2(self):
+        '''Tests constructor signature with 2 notself args.'''
+        with self.assertRaises(TypeError) as e:
+            Base.__init__(self, 1, 2)
+        msg = "__init__() takes from 1 to 2 positional arguments but 3 \
+were given"
+        self.assertEqual(str(e.exception), msg)
 
 #     "------------Tests for task 15 ----------"
 
