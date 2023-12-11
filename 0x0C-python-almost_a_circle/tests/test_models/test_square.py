@@ -33,5 +33,5 @@ class TestSquare(unittest.TestCase):
         """Test constructor"""
         with self.assertRaises(TypeError) as e:
             r = Square(1, 2, 5, 8, 9)
-        string = "__init__() takes from 2 to 5 positional arguments but were given"
-        self.assertEqual(str(e.exception), string)
+        s = "__init__() takes from 2 to 5 positional arguments but were given"
+        self.assertEqual(str(e.exception), s)
