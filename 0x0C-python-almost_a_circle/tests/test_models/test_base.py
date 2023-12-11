@@ -11,7 +11,7 @@ import os
 
 
 class TestBase(unittest.TestCase):
-
+    """Test cases"""
 
     def test_base_is_class(self):
         self.assertTrue(inspect.isclass(Base))
@@ -81,13 +81,11 @@ were given"
         data = [{'id': 1, 'width': 2, 'height': 3, 'x': 4, 'y': 5}]
         self.assertEqual(len(Base.to_json_string(data)), len(str(data)))
 
-        data = [{"testtest":989898}]
+        data = [{"testtest": 989898}]
         self.assertEqual(Base.to_json_string(data), '[{"testtest": 989898}]')
 
         data = [{}]
         self.assertEqual(Base.to_json_string(data), '[{}]')
-
-
 
         r = Rectangle(1, 2, 3, 4)
         dic = r.to_dictionary()
@@ -99,13 +97,13 @@ were given"
         r1 = Rectangle(1, 2, 3, 4)
         r2 = Rectangle(1, 2)
         r3 = Rectangle(2, 4, 6)
-        dictionary = [r1.to_dictionary(), r2.to_dictionary(), r3.to_dictionary()]
+        dictionary = [
+                r1.to_dictionary(
+                    ), r2.to_dictionary(), r3.to_dictionary()]
         json_dictionary = Base.to_json_string(dictionary)
         dictionary = str(dictionary)
         dictionary = dictionary.replace("'", '"')
         self.assertEqual(dictionary, json_dictionary)
-
-
 
     '========= Test for task 17 ==============='
 
@@ -113,15 +111,16 @@ were given"
         ''' Tests from_json_string method '''
         with self.assertRaises(TypeError) as ex:
             Base.from_json_string()
-        msg = "Base.from_json_string() missing 1 required positional argument: \
-'json_string'"
+        msg = "Base.from_json_string() missing" \
+              " 1 required positional argument:" \
+              " 'json_string'"
         self.assertEqual(str(ex.exception), msg)
 
         self.assertEqual(Base.from_json_string(None), [])
         self.assertEqual(Base.from_json_string(""), [])
 
         s = '[{"x":1, "y": 2, "width": 3, "id": 4, "height": 5}]'
-        d = [{'x':1, 'y': 2, 'width': 3, 'id':4, 'height': 5}]
+        d = [{'x': 1, 'y': 2, 'width': 3, 'id': 4, 'height': 5}]
 
         self.assertEqual(Base.from_json_string(s), d)
 
@@ -130,24 +129,21 @@ were given"
 
         self.assertEqual(Base.from_json_string(s), d)
 
-
     '========= Test for task 16 ==============='
 
     def test_save_to_file(self):
         ''' Tests save to file '''
 
-        d = [{'id': 4, 'width': 3, 'height': 5 , 'x': 1, 'y': 2}]
+        d = [{'id': 4, 'width': 3, 'height': 5, 'x': 1, 'y': 2}]
         r = Rectangle(3, 5, 1, 2, 4)
         Rectangle.save_to_file([r])
 
         with open("Rectangle.json", "r") as file:
             self.assertEqual(str(d).replace("'", '"'), file.read())
 
-
         Rectangle.save_to_file(None)
         with open("Rectangle.json", "r") as file:
             self.assertEqual(file.read(), "[]")
-
 
         d = [{'id': 1, 'size': 2, 'x': 5, 'y': 0}]
         sq = Square(2, 5, 0, 1)

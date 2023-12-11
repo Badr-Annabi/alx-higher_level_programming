@@ -92,7 +92,7 @@ class TestRectangle(unittest.TestCase):
         r.width = 12
         self.assertEqual(r.id, r._Base__nb_objects)
 
-        r1 = Rectangle(10 ,5)
+        r1 = Rectangle(10, 5)
         r1.width = 12
         r1.height = 4
         self.assertEqual(r1.id, r._Base__nb_objects)
@@ -100,7 +100,7 @@ class TestRectangle(unittest.TestCase):
         r2 = Rectangle(10, 5)
         r2.width = 12
         r2.height = 4
-        r2.x =  6
+        r2.x = 6
         self.assertEqual(r2.id, r._Base__nb_objects)
 
         r3 = Rectangle(10, 5)
@@ -183,14 +183,16 @@ class TestRectangle(unittest.TestCase):
 
         self.assertEqual(area1, 6)
         self.assertEqual(area2, 56)
-    
+
     def display(self):
         with patch('sys,stdout', new=StringIO()) as fake_stdout:
             r1 = Rectangle(4, 6)
             r2 = Rectangle(2, 2)
             r1.display()
             r2.display()
-            self.assertEqual(fake_stdout.getvalue(),"####\n####\n####\n####\n####\n####\n##\n##\n")
+            self.assertEqual(
+                    fake_stdout.getvalue(
+                        ), "####\n####\n####\n####\n####\n####\n##\n##\n")
 
 
 if __name__ == '__main__':
