@@ -75,9 +75,9 @@ class Base:
         filename = cls.__name__ + ".csv"
         with open(filename, 'w') as file:
             writer = csv.writer(file)
-            list_obj = [bj.width, obj.height, obj.x, obj.y, obj.id]
             if list_objs is not None:
                 for obj in list_objs:
+                    list_obj = [obj.width, obj.height, obj.x, obj.y, obj.id]
                     if cls.__name__ == "Rectangle":
                         writer.writerow(list_obj)
                     elif cls.__name__ == "Square":
