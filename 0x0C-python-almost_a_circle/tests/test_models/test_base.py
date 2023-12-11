@@ -173,8 +173,8 @@ were given"
 
     def test_load_from_file(self):
         ''' Test load_from_file'''
-        r1 = Rectangle(4, 8, 16, 40)
-        r2 = Rectangle(85, 98)
+        r1 = Rectangle(8, 10, 20, 50)
+        r2 = Rectangle(66, 78)
         list_in = [r1, r2]
         Rectangle.save_to_file(list_in)
         list_out = Rectangle.load_from_file()
@@ -183,8 +183,8 @@ were given"
         self.assertNotEqual(id(list_in[1]), id(list_out[1]))
         self.assertEqual(str(list_in[1]), str(list_out[1]))
 
-        s1 = Square(55)
-        s2 = Square(78, 89, 41)
+        s1 = Square(60)
+        s2 = Square(73, 88, 47)
         list_in = [s1, s2]
         Square.save_to_file(list_in)
         list_out = Square.load_from_file()
