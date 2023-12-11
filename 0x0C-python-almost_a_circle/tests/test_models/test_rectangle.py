@@ -183,8 +183,15 @@ class TestRectangle(unittest.TestCase):
 
         self.assertEqual(area1, 6)
         self.assertEqual(area2, 56)
+    
+    def test_Display_nargs(self):
+        r = Rectangle(4, 10)
+        with self.assertRaises(TypeError) as e:
+            Rectangle.display()
+        msg = "display() missing 1 required positional argument: 'self'"
+        self.assertEqual(str(e.exception), msg)
 
-    def display(self):
+    def test_display(self):
         with patch('sys,stdout', new=StringIO()) as fake_stdout:
             r1 = Rectangle(4, 6)
             r2 = Rectangle(2, 2)
