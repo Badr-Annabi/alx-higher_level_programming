@@ -12,7 +12,10 @@ import os
 
 class TestBase(unittest.TestCase):
     """Test cases"""
-
+    def setUp(self):
+        Base.__nb_objects = 0
+        pass
+        
     def test_base_is_class(self):
         self.assertTrue(inspect.isclass(Base))
 
@@ -50,12 +53,12 @@ class TestBase(unittest.TestCase):
         obj_id = Base()
         self.assertEqual(obj_id.id, Base._Base__nb_objects)
 
-#     def test_D_constructor(self):
-#         '''Tests constructor signature.'''
-#         with self.assertRaises(TypeError) as e:
-#             Base.__init__()
-#         msg = "Base.__init__() missing 1 required positional argument: 'self'"
-#         self.assertEqual(str(e.exception), msg)
+    def test_D_constructor(self):
+        '''Tests constructor signature.'''
+        with self.assertRaises(TypeError) as e:
+            Base.__init__()
+        msg = "Base.__init__() missing 1 required positional argument: 'self'"
+        self.assertEqual(str(e.exception), msg)
 
 #     def test_D_constructor_args_2(self):
 #         '''Tests constructor signature with 2 notself args.'''
