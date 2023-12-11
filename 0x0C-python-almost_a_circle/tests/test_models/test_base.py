@@ -160,8 +160,8 @@ were given"
         with open("Square.json", "r") as file:
             self.assertEqual(file.read(), "[]")
         
-        rec1 = Rectangle(2, 4)
-        Rectangle.save_to_file([rec1])
+        r2 = Rectangle(2, 4)
+        Rectangle.save_to_file([r2])
         with open("Rectangle.json", "r") as file:
             self.assertEqual(len(file.read()), 52)
 
