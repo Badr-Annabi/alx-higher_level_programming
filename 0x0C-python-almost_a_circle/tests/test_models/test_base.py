@@ -57,7 +57,7 @@ class TestBase(unittest.TestCase):
         '''Tests constructor signature.'''
         with self.assertRaises(TypeError) as e:
             Base.__init__()
-        msg = "Base.__init__() missing 1 required positional argument: 'self'"
+        msg = "__init__() missing 1 required positional argument: 'self'"
         self.assertEqual(str(e.exception), msg)
 
 #     def test_D_constructor_args_2(self):
