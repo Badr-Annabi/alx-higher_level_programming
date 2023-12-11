@@ -5,26 +5,32 @@ from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """"""
+    """
+        Class Square
+    """
 
     def __init__(self, size, x=0, y=0, id=None):
         super().__init__(size, size, x, y, id)
 
     @property
     def size(self):
+        """ This module defines a Square Class"""
         return self.width
 
     @size.setter
     def size(self, value):
+        """ This module defines a Square Class"""
         self.width = value
         self.height = value
 
     def __str__(self):
+        """ This module defines a Square Class"""
         return (
                 "[Square] ({}) {}/{} - {}".format(
                     self.id, self.x, self.y, self.width))
 
     def update(self, *args, **kwargs):
+        """ This module defines a Square Class"""
         if args:
             attributes = ["id", "width", "height", "x", "y"]
             for i in range(len(args)):
