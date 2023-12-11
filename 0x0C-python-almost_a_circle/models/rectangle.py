@@ -41,10 +41,12 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        """ Module that defines a Rectangle Class """
         return self.__width
 
     @width.setter
     def width(self, value):
+        """ Module that defines a Rectangle Class """
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value <= 0:
@@ -53,10 +55,12 @@ class Rectangle(Base):
 
     @property
     def height(self):
+        """ Module that defines a Rectangle Class """
         return self.__height
 
     @height.setter
     def height(self, value):
+        """ Module that defines a Rectangle Class """
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value <= 0:
@@ -65,10 +69,12 @@ class Rectangle(Base):
 
     @property
     def x(self):
+        """ Module that defines a Rectangle Class """
         return self.__x
 
     @x.setter
     def x(self, value):
+        """ Module that defines a Rectangle Class """
         if not isinstance(value, int):
             raise TypeError("x must be an integer")
         if value < 0:
@@ -77,10 +83,12 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        """ Module that defines a Rectangle Class """
         return self.__y
 
     @y.setter
     def y(self, value):
+        """ Module that defines a Rectangle Class """
         if not isinstance(value, int):
             raise TypeError("y must be an integer")
         if value < 0:
@@ -88,20 +96,24 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
+        """ Module that defines a Rectangle Class """
         return self.__width * self.__height
 
     def display(self):
+        """ Module that defines a Rectangle Class """
         for j in range(0, self.__y):
             print()
         for i in range(0, self.__height):
             print(self.__x * " " + "#" * self.__width)
 
     def __str__(self):
+        """ Module that defines a Rectangle Class """
         return (
                 "[Rectangle] ({}) {}/{} - {}/{}")
         .format(self.id, self.__x, self.__y, self.__width, self.__height)
 
     def update(self, *args, **kwargs):
+        """ Module that defines a Rectangle Class """
         if args:
             attributes = ["id", "width", "height", "x", "y"]
             for i in range(len(args)):
@@ -111,6 +123,7 @@ class Rectangle(Base):
                 setattr(self, key, value)
 
     def to_dictionary(self):
+        """ Module that defines a Rectangle Class """
         return {
                 'id': self.id,
                 'width': self.width,
