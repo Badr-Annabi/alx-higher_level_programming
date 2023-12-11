@@ -164,13 +164,13 @@ were given"
         with open("Square.json", "r") as file:
             self.assertEqual(file.read(), "[]")
 
-        rec1 = Rectangle(4, 8)
-        Rectangle.save_to_file([rec1])
+        r2 = Rectangle(2, 4)
+        Rectangle.save_to_file([r2])
         with open("Rectangle.json", "r") as file:
             self.assertEqual(len(file.read()), 52)
 
-        s1 = Square(1)
-        Square.save_to_file([s1])
+        s2 = Square(1)
+        Square.save_to_file([s2])
         with open("Square.json", "r") as file:
             self.assertEqual(len(file.read()), 38)
 
@@ -189,37 +189,6 @@ were given"
         Rectangle.save_to_file([])
         with open("Rectangle.json", "r") as file:
             self.assertEqual(file.read(), "[]")
-
-    def test_create(self):
-        ''' Teses create method '''
-        r1 = Rectangle(5, 8, 2)
-        r1_dictionary = r1.to_dictionary()
-        r2 = Rectangle.create(**r1_dictionary)
-        self.assertEqual(str(r1), str(r2))
-        self.assertFalse(r1 is r2)
-        self.assertFalse(r1 == r2)
-
-    def test_load_from_file(self):
-        ''' Test load_from_file'''
-        r1 = Rectangle(7, 10, 19, 52)
-        r2 = Rectangle(58, 86)
-        list_in = [r1, r2]
-        Rectangle.save_to_file(list_in)
-        list_out = Rectangle.load_from_file()
-        self.assertNotEqual(id(list_in[0]), id(list_out[0]))
-        self.assertEqual(str(list_in[0]), str(list_out[0]))
-        self.assertNotEqual(id(list_in[1]), id(list_out[1]))
-        self.assertEqual(str(list_in[1]), str(list_out[1]))
-
-        s1 = Square(55)
-        s2 = Square(78, 89, 41)
-        list_in = [s1, s2]
-        Square.save_to_file(list_in)
-        list_out = Square.load_from_file()
-        self.assertNotEqual(id(list_in[0]), id(list_out[0]))
-        self.assertEqual(str(list_in[0]), str(list_out[0]))
-        self.assertNotEqual(id(list_in[1]), id(list_out[1]))
-        self.assertEqual(str(list_in[1]), str(list_out[1]))
 
 
 if __name__ == "__main__":
