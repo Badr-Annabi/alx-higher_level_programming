@@ -20,7 +20,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(str(
             Square), "<class 'models.square.Square'>")
     
-    # def test_inheritance(self):
-    #     """Test inheritance Square->Base"""
-    #     self.assertTrue(isinstance(Square, Base))
+    def test_inheritance(self):
+        """Test inheritance Square->Base"""
+        self.assertTrue(issubclass(Square, Base))
     
