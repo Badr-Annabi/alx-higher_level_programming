@@ -15,10 +15,10 @@ class TestSquare(unittest.TestCase):
 
     '--------------- Test #2 ------------------'
 
-    # def test_class(self):
-    #     """Test for Square Class"""
-    #     self.assertEqual(str(
-    #         Square), "<class 'models.square.Square'>")
+    def test_class(self):
+        """Test for Square Class"""
+        self.assertEqual(str(
+            Square), "<class 'models.square.Square'>")
     
     # def test_inheritance(self):
     #     """Test inheritance Square->Base"""
