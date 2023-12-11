@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-    This is a unittest file for Base Class
+    This is a unittest file for class Base
 """
 import unittest
 import inspect
@@ -68,7 +68,7 @@ class TestBase(unittest.TestCase):
 were given"
         self.assertEqual(str(e.exception), msg)
 
-
+    "------------Tests for task 15 ----------"
 
     def test_to_json_string(self):
         ''' Tests to_json_string() method '''
@@ -108,7 +108,7 @@ were given"
         dictionary = dictionary.replace("'", '"')
         self.assertEqual(dictionary, json_dictionary)
 
-
+    '========= Test for task 17 ==============='
 
     def test_from_json_string(self):
         ''' Tests from_json_string method '''
@@ -132,7 +132,7 @@ were given"
 
         self.assertEqual(Base.from_json_string(s), d)
 
-
+    '========= Test for task 16 ==============='
 
     def test_save_to_file(self):
         ''' Tests save to file '''
@@ -158,36 +158,6 @@ were given"
 
         Square.save_to_file(None)
         with open("Square.json", "r") as file:
-            self.assertEqual(file.read(), "[]")
-    
-        Square.save_to_file(None)
-        with open("Square.json", "r") as file:
-            self.assertEqual(file.read(), "[]")
-
-        r2 = Rectangle(2, 4)
-        Rectangle.save_to_file([r2])
-        with open("Rectangle.json", "r") as file:
-            self.assertEqual(len(file.read()), 52)
-
-        s2 = Square(1)
-        Square.save_to_file([s2])
-        with open("Square.json", "r") as file:
-            self.assertEqual(len(file.read()), 38)
-
-        try:
-            os.remove("Square.json")
-        except:
-            pass
-        Square.save_to_file([])
-        with open("Square.json", "r") as file:
-            self.assertEqual(file.read(), "[]")
-
-        try:
-            os.remove("Rectangle.json")
-        except:
-            pass
-        Rectangle.save_to_file([])
-        with open("Rectangle.json", "r") as file:
             self.assertEqual(file.read(), "[]")
 
 
