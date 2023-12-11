@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-    This is a unittest file for class Base
+    This is a unittest file for Base Class
 """
 import unittest
 import inspect
@@ -68,7 +68,7 @@ class TestBase(unittest.TestCase):
 were given"
         self.assertEqual(str(e.exception), msg)
 
-    "------------Tests for task 15 ----------"
+
 
     def test_to_json_string(self):
         ''' Tests to_json_string() method '''
@@ -108,7 +108,7 @@ were given"
         dictionary = dictionary.replace("'", '"')
         self.assertEqual(dictionary, json_dictionary)
 
-    '========= Test for task 17 ==============='
+
 
     def test_from_json_string(self):
         ''' Tests from_json_string method '''
@@ -132,7 +132,7 @@ were given"
 
         self.assertEqual(Base.from_json_string(s), d)
 
-    '========= Test for task 16 ==============='
+
 
     def test_save_to_file(self):
         ''' Tests save to file '''
@@ -159,6 +159,67 @@ were given"
         Square.save_to_file(None)
         with open("Square.json", "r") as file:
             self.assertEqual(file.read(), "[]")
+    
+        Square.save_to_file(None)
+        with open("Square.json", "r") as file:
+            self.assertEqual(file.read(), "[]")
+
+        rec1 = Rectangle(4, 8)
+        Rectangle.save_to_file([rec1])
+        with open("Rectangle.json", "r") as file:
+            self.assertEqual(len(file.read()), 52)
+
+        s1 = Square(1)
+        Square.save_to_file([s1])
+        with open("Square.json", "r") as file:
+            self.assertEqual(len(file.read()), 38)
+
+        try:
+            os.remove("Square.json")
+        except:
+            pass
+        Square.save_to_file([])
+        with open("Square.json", "r") as file:
+            self.assertEqual(file.read(), "[]")
+
+        try:
+            os.remove("Rectangle.json")
+        except:
+            pass
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", "r") as file:
+            self.assertEqual(file.read(), "[]")
+
+    def test_create(self):
+        ''' Teses create method '''
+        r1 = Rectangle(5, 8, 2)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertEqual(str(r1), str(r2))
+        self.assertFalse(r1 is r2)
+        self.assertFalse(r1 == r2)
+
+    def test_load_from_file(self):
+        ''' Test load_from_file'''
+        r1 = Rectangle(7, 10, 19, 52)
+        r2 = Rectangle(58, 86)
+        list_in = [r1, r2]
+        Rectangle.save_to_file(list_in)
+        list_out = Rectangle.load_from_file()
+        self.assertNotEqual(id(list_in[0]), id(list_out[0]))
+        self.assertEqual(str(list_in[0]), str(list_out[0]))
+        self.assertNotEqual(id(list_in[1]), id(list_out[1]))
+        self.assertEqual(str(list_in[1]), str(list_out[1]))
+
+        s1 = Square(55)
+        s2 = Square(78, 89, 41)
+        list_in = [s1, s2]
+        Square.save_to_file(list_in)
+        list_out = Square.load_from_file()
+        self.assertNotEqual(id(list_in[0]), id(list_out[0]))
+        self.assertEqual(str(list_in[0]), str(list_out[0]))
+        self.assertNotEqual(id(list_in[1]), id(list_out[1]))
+        self.assertEqual(str(list_in[1]), str(list_out[1]))
 
 
 if __name__ == "__main__":
