@@ -160,10 +160,14 @@ were given"
         with open("Square.json", "r") as file:
             self.assertEqual(file.read(), "[]")
         
-        r2 = Rectangle(2, 4)
-        Rectangle.save_to_file([r2])
-        with open("Rectangle.json", "r") as file:
-            self.assertEqual(len(file.read()), 52)
+        # r2 = Rectangle(2, 4)
+        # Rectangle.save_to_file([r2])
+        # with open("Rectangle.json", "r") as file:
+        #     self.assertEqual(len(file.read()), 52)
+        s2 = Square(1)
+        Square.save_to_file([s2])
+        with open("Square.json", "r") as file:
+            self.assertEqual(len(file.read()), 38)
 
 
 if __name__ == "__main__":
