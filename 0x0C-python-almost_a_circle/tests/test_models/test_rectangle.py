@@ -185,7 +185,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(area2, 56)
     
     def test_Display_nargs(self):
-        # r = Rectangle(4, 10)
+        r = Rectangle(5, 8)
         with self.assertRaises(TypeError) as e:
             Rectangle.display()
         msg = "display() missing 1 required positional argument: 'self'"
