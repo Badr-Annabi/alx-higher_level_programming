@@ -109,8 +109,8 @@ class Rectangle(Base):
     def __str__(self):
         """ Module that defines a Rectangle Class """
         return (
-                "[Rectangle] ({}) {}/{} - {}/{}")
-        .format(self.id, self.__x, self.__y, self.__width, self.__height)
+                "[Rectangle] ({}) {}/{} - {}/{}").format(
+                    self.id, self.__x, self.__y, self.__width, self.__height)
 
     def update(self, *args, **kwargs):
         """ Module that defines a Rectangle Class """
