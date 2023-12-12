@@ -41,9 +41,12 @@ were given"
     def test_raises(self):
 
         """ Test cases"""
-        s = Square(10)
-        self.assertEqual(str(type(s)), "<class 'models.square.Square'>")
-        self.assertTrue(isinstance(s, Base))
+        r = Square(10)
+        self.assertEqual(str(type(r)), "<class 'models.square.Square'>")
+        self.assertTrue(isinstance(r, Base))
+        d = {'_Rectangle__height': 10, '_Rectangle__width': 10,
+             '_Rectangle__x': 0, '_Rectangle__y': 0, 'id': 1}
+        self.assertDictEqual(r.__dict__, d)
         with self.assertRaises(TypeError) as context:
             s = Square("string")
         self.assertEqual(str(context.exception), "width must be an integer")
