@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""shows all content of a table in a database with letter N"""
+"""shows a searched state"""
 
 
 import MySQLdb
@@ -17,7 +17,7 @@ if __name__ == "__main__":
             charset="utf8")
     cur = conn.cursor()
     query = ("SELECT * FROM states \
-            WHERE name LIKE '{}'  \
+            WHERE BINARY name LIKE '{}'  \
             ORDER BY id ASC".format(search_name))
     cur.execute(query)
     query_rows = cur.fetchall()
