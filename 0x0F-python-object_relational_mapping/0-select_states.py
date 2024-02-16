@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""shows all content of a table in a database """
+
+
 import MySQLdb
 import sys
 
