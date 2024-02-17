@@ -19,7 +19,7 @@ if __name__ == "__main__":
     query = ("SELECT * FROM states \
             WHERE BINARY name=%s  \
             ORDER BY id ASC")
-    cur.execute(query, search_name)
+    cur.execute(query, (search_name,))
     query_rows = cur.fetchall()
     for row in query_rows:
         print(row)
