@@ -19,7 +19,12 @@ Base = declarative_base()
 
 
 class State(Base):
-    """creates a state table"""
+    """
+    creates a state table
+    __tablename__: states
+    Attributes:
+    id, name
+    """
 
     __tablename__ = 'states'
 
