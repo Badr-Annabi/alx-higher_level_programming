@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""List all elements of the table States"""
+"""List first element of the table States"""
 
 
 import sys
