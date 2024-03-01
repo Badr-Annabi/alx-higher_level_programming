@@ -2,7 +2,7 @@
 """
 This Python script takes 2 arguments in order to solve this challenge.
 """
-import ss
+import sys
 import requests
 
 if __name__ == "__main__":
