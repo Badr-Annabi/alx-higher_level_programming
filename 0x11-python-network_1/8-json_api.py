@@ -21,6 +21,6 @@ if __name__ == "__main__":
             print("No result")
         else:
             print("[{}] {}".format(
-                json_res.['id'], json_res['name']))
+                json_res['id'], json_res['name']))
     except ValueError:
         print("Not a valid JSON")
