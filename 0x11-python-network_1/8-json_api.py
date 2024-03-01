@@ -9,11 +9,11 @@ import requests
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        payload = {'q': ""}
+        data = {'q': ""}
     else:
-        payload = {q: sys.argv[1]}
+        data = {q: sys.argv[1]}
     url = 'http://0.0.0.0:5000/search_user'
-    res = requests.get(url, payload)
+    res = requests.get(url, data)
     try:
         json_res = res.json()
         if json_res == {}:
