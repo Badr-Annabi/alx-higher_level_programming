@@ -12,4 +12,7 @@ is __name__ == "__main__":
             'https://api.github.com/user', auth=(
                 sys.argv[1], sys.argv[2]))
     json_res = res.json()
-    print(json.get('id'))
+    try:
+        print(json['id'])
+    except:
+        print("None")
