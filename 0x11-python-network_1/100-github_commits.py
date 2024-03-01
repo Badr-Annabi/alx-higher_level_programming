@@ -8,7 +8,7 @@ import requests
 if __name__ == "__main__":
     url = "https://developer.github.com/v3/repos/{}/{}/commits/".format(
             sys.argv[2], sys.argv[1])
-    res = request.get(url)
+    res = requests.get(url)
     commit = r.json()
     try:
         for i in range(10):
