@@ -6,7 +6,7 @@ and uses the GitHub API to display your id
 import requests
 import sys
 
-is __name__ == "__main__":
+if __name__ == "__main__":
 
     res = requests.get(
             'https://api.github.com/user', auth=(
