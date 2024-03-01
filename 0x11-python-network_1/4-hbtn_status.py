@@ -7,7 +7,7 @@ import requests
 if __name__ == "__main__":
     url = 'https://alx-intranet.hbtn.io/status'
     res = requests.get(url)
-    body = response.text
+    body = res.text
 
     print("Body response:")
     print("\t- type: {}".format(type(body)))
