@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-""" This python script displays the value of the X-Request-Id var in the header """
+"""
+This python script displays the value of
+the X-Request-Id var in the header
+"""
 
 
 import urllib.request
