@@ -3,16 +3,20 @@
 const request = require('request');
 const characterId = '18';
 const url = process.argv[2];
+let count = 0;
 
-request.get(url, (error, res, body) => {
+request.get(url, (error, response, body) => {
   if (error) {
     console.log(error);
   } else {
-    const data = JSON.parse(body).results;
-    const count = data.filter(
-      film =>
-        film.characters.includes(
-          `https://swapi-api.alx-tools.com/api/people/${characterId}/`)).length;
+    const data = JSON.parse(body);
+    data.results.forEach((film) => {
+      film.characters.forEach((character) => {
+        if (character.includes(characterId)) {
+          count += 1;
+        }
+      });
+    });
     console.log(count);
   }
 });
